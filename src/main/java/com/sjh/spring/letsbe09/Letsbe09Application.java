@@ -28,6 +28,7 @@ public class Letsbe09Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println("Git Push TEST");
 		System.out.println("CommandLine Runner Started");
 		SrMng dto = srMngService.getSrMngBySrNo("T170916_001");
 		System.out.println(dto);
