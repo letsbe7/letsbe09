@@ -6,5 +6,7 @@ interface SrMngDao {
 
     SrMng findOneBySrNo (String srNo)
 
+    SrMng findOneOrderBySrNoDesc ()
 
+    int insertSrMng(SrMng srMng)
 }

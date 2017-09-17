@@ -9,6 +9,7 @@
         , SR_TP_SEQ         as srTpSeq
         , REG_DTM           as regDtm
         from TB_SR_MNG
+        where SR_NO = #{value}
     </select>
 
     <select id="findAll" resultType="com.sjh.spring.letsbe09.srMng.entity.SrMng">
@@ -18,6 +19,33 @@
           , SR_TP_SEQ         as srTpSeq
           , REG_DTM           as regDtm
         from TB_SR_MNG
-        where SR_NO = #{srNo}
     </select>
+
+    <select id="findOneOrderBySrNoDesc" resultType="com.sjh.spring.letsbe09.srMng.entity.SrMng">
+      select
+            TOP 1
+            SR_NO             as srNo
+          , SR_PROG_STAT      as srProgStat
+          , SR_TP_SEQ         as srTpSeq
+          , REG_DTM           as regDtm
+        from TB_SR_MNG
+        ORDER BY SR_NO DESC
+    </select>
+
+    <insert id="insertSrMng" parameterType="com.sjh.spring.letsbe09.srMng.entity.SrMng">
+        insert into TB_SR_MNG (
+            SR_NO
+          , SR_PROG_STAT
+          , SR_TP_SEQ
+          , REG_DTM
+        )
+
+        VALUES (
+            #{srNo}
+          , #{srProgStat}
+          , #{srTpSeq}
+          , getDate()
+        )
+    </insert>
+
 </mapper>

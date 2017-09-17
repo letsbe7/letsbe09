@@ -11,14 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Letsbe09Application implements CommandLineRunner {
 
-
 	public static void main(String[] args) {
 		SpringApplication.run(Letsbe09Application.class, args);
 	}
-
-
-	@Autowired
-	SrMngService srMngService;
 
 	@Autowired
 	CommonService commonService;
@@ -26,8 +21,6 @@ public class Letsbe09Application implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		System.out.println("CommandLine Runner Started");
-		SrMng dto = srMngService.getSrMngBySrNo("T170916_001");
-		System.out.println(dto);
 		System.out.println("datetime is: " + commonService.getSysdate());
 		System.out.println("CommandLine Runner Ended");
 	}

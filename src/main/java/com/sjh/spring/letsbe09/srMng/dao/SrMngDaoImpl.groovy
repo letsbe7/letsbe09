@@ -13,12 +13,16 @@ class SrMngDaoImpl implements SrMngDao {
     @Autowired
     private SqlSessionTemplate sessionTemplate
 
-    SrMngDaoImpl () {
-        println """${sessionTemplate} autowired"""
-    }
-
     @Override
     SrMng findOneBySrNo(String srNo) {
-        return sessionTemplate.selectOne("""${namespace}.findOneBySrNo""", srNo)
+        return sessionTemplate.selectOne("${namespace}.findOneBySrNo", srNo)
+    }
+    @Override
+    SrMng findOneOrderBySrNoDesc() {
+        return sessionTemplate.selectOne("${namespace}.findOneOrderBySrNoDesc", null)
+    }
+    @Override
+    int insertSrMng(SrMng srMng) {
+        return sessionTemplate.insert("${namespace}.insertSrMng", srMng)
     }
 }

@@ -3,6 +3,7 @@ target/
 
 src/main/resources/application.properties
 src/main/resources/orcl_hikari.properties
+src/main/resources/temp
 
 ### STS ###
 .apt_generated
@@ -25,3 +26,12 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+
+######################
+# Node
+######################
+/node/**
+/node_tmp/**
+/node_modules/**
+

@@ -8,9 +8,11 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -33,6 +35,11 @@ class HikariDatasourceConfiguration {
         Properties prop = new Properties();
         prop.load(DataSourceFactory.class.getClassLoader().getResourceAsStream("orcl_hikari.properties"));
         return new HikariDataSource(new HikariConfig(prop));
+    }
+
+    @Bean
+    public DataSourceTransactionManager transactionManager (@Qualifier("orcl_hikari_ds") DataSource ds) {
+        return new DataSourceTransactionManager(ds);
     }
 
     @Bean(name = "orcl_ssf")
