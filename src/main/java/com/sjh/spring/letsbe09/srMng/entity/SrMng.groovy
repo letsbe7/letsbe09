@@ -1,8 +1,9 @@
-package com.sjh.spring.letsbe09.entity
+package com.sjh.spring.letsbe09.srMng.entity
 
 import groovy.transform.ToString
 
 class SrMng {
+
     String srNo
     String srProgStat
     String srTpSeq

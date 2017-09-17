@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-@Configuration
+//  @Configuration
 @MapperScan(basePackages = "com.sjh.spring.letsbe09.mapper")
 public class PlainDatasource {
 

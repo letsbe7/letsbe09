@@ -1,6 +1,9 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
+src/main/resources/application.properties
+src/main/resources/orcl_hikari.properties
+
 ### STS ###
 .apt_generated
 .classpath

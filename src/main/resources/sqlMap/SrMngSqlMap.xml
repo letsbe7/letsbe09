@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjh.spring.letsbe09.srMng.dao.SrMngDao">
+
+    <select id="findOneBySrNo" parameterType="java.lang.String" resultType="com.sjh.spring.letsbe09.srMng.entity.SrMng">
+        select
+          SR_NO             as srNo
+        , SR_PROG_STAT      as srProgStat
+        , SR_TP_SEQ         as srTpSeq
+        , REG_DTM           as regDtm
+        from TB_SR_MNG
+    </select>
+
+    <select id="findAll" resultType="com.sjh.spring.letsbe09.srMng.entity.SrMng">
+        select
+            SR_NO             as srNo
+          , SR_PROG_STAT      as srProgStat
+          , SR_TP_SEQ         as srTpSeq
+          , REG_DTM           as regDtm
+        from TB_SR_MNG
+        where SR_NO = #{srNo}
+    </select>
+</mapper>

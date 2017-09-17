@@ -11,13 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
-//      @Configuration
+@Configuration
+@EnableTransactionManagement
 @MapperScan(
-        basePackages = "com.sjh.spring.letsbe09.mapper",
+        basePackages = "com.sjh.spring.letsbe09",
         sqlSessionFactoryRef = "orcl_ssf",
         sqlSessionTemplateRef = "orcl_sst"
 )
@@ -37,7 +39,7 @@ class HikariDatasourceConfiguration {
     SqlSessionFactory getSqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(getDataSource());
-        //  sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:sqlMap/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 
